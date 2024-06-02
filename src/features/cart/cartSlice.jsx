@@ -49,6 +49,10 @@ const cartSlice = createSlice({
         let amount = 0;
         let total = 0;
         state.cartItems.forEach((item) => {
+          if (!state.cartItems) {
+            console.error("cartItems is undefined");
+            return;
+          }
           amount+= item.amount;
           total += item.amount * item.price;
           console.log(total);
